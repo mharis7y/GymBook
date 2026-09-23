@@ -32,6 +32,14 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 76
         }
+      ],
+      "expo-sqlite",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Taj Fitness needs access to your photos to set a member profile picture.",
+          "cameraPermission": "Taj Fitness needs access to your camera to take a member profile photo."
+        }
       ]
     ],
     "experiments": {

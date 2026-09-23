@@ -1,9 +1,32 @@
-:root {
-  --font-display:
-    Spline Sans, Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji,
-    Segoe UI Symbol, Noto Color Emoji;
-  --font-mono:
-    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  --font-rounded: 'SF Pro Rounded', 'Hiragino Maru Gothic ProN', Meiryo, 'MS PGothic', sans-serif;
-  --font-serif: Georgia, 'Times New Roman', serif;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@theme {
+  --color-emerald-ink: #064E3B;
+  --color-emerald-dark: #043D2F;
+  --color-emerald-soft: #E7F1ED;
+  --color-champagne: #F8E7C9;
+  --color-champagne-soft: #FFF8EC;
+  --color-ink: #132721;
+  --color-text-secondary: #66736F;
+  --color-border-card: #E4E8E5;
+  --color-success: #198754;
+  --color-success-bg: #E8F6EE;
+  --color-warning: #D98C10;
+  --color-warning-bg: #FFF4DC;
+  --color-danger: #C83E4D;
+  --color-danger-bg: #FDECEE;
+
+  --font-poppins: 'Poppins-Regular', sans-serif;
+  --font-poppins-medium: 'Poppins-Medium', sans-serif;
+  --font-poppins-semibold: 'Poppins-SemiBold', sans-serif;
+  --font-poppins-bold: 'Poppins-Bold', sans-serif;
+  
+  --font-inter: 'Inter-Regular', sans-serif;
+  --font-inter-medium: 'Inter-Medium', sans-serif;
+  --font-inter-semibold: 'Inter-SemiBold', sans-serif;
 }
+
