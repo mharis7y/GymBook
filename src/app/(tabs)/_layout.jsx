@@ -1,6 +1,6 @@
 import { DbProvider } from '@/lib/DbContext';
 import { Tabs } from 'expo-router';
-import { Home, Users, Wallet } from 'lucide-react-native';
+import { Home, Users, Wallet, Settings } from 'lucide-react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -81,6 +81,15 @@ export default function TabLayout() {
             title: 'Finance',
             tabBarIcon: ({ focused }) => (
               <TabIcon icon={Wallet} label="Finance" focused={focused} />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="settings"
+          options={{
+            title: 'Settings',
+            tabBarIcon: ({ focused }) => (
+              <TabIcon icon={Settings} label="Settings" focused={focused} />
             ),
           }}
         />

@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
+  Image,
   TextInput,
   TouchableOpacity,
   Alert,
@@ -14,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
 import { useAuth } from '@/store/AuthContext';
 import PinInput from '@/components/PinInput';
+import { images } from '@/constants/images';
 
 export default function OnboardingScreen() {
   const { setupAccount } = useAuth();
@@ -93,9 +95,7 @@ export default function OnboardingScreen() {
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.welcomeContainer}>
           <View style={styles.welcomeTop}>
-            <View style={styles.logoMark}>
-              <Text style={styles.logoMarkText}>TF</Text>
-            </View>
+            <Image source={images.appIcon} style={styles.logoImage} resizeMode="contain" />
             <Text style={styles.welcomeAppName}>Taj Fitness</Text>
             <Text style={styles.welcomeTagline}>Manage. Track. Grow.</Text>
           </View>
@@ -315,25 +315,16 @@ const styles = StyleSheet.create({
   welcomeTop: {
     alignItems: 'center',
   },
-  logoMark: {
-    width: 72,
-    height: 72,
-    borderRadius: 20,
-    backgroundColor: '#064E3B',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 16,
+  logoImage: {
+    width: 88,
+    height: 88,
+    borderRadius: 22,
+    marginBottom: 20,
     shadowColor: '#064E3B',
     shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.35,
+    shadowOpacity: 0.3,
     shadowRadius: 16,
     elevation: 12,
-  },
-  logoMarkText: {
-    color: '#F8E7C9',
-    fontSize: 28,
-    fontFamily: 'Poppins_700Bold',
-    letterSpacing: 1,
   },
   welcomeAppName: {
     fontSize: 24,

@@ -1,10 +1,9 @@
 import '../global.css';
 
 import { useEffect } from 'react';
-import { Slot, useRouter, useSegments } from 'expo-router';
+import { Slot, useRouter, useSegments, ThemeProvider, DarkTheme, DefaultTheme } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useColorScheme } from 'react-native';
-import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 
 import { AuthProvider, useAuth } from '@/store/AuthContext';
 import { AnimatedSplashOverlay } from '@/components/animated-icon';
@@ -34,7 +33,7 @@ function RootLayoutNav() {
         router.replace('/(tabs)');
       }
     }
-  }, [isLoading, isSetupComplete, isAuthenticated, segments]);
+  }, [isLoading, isSetupComplete, isAuthenticated, segments, router]);
 
   const colorScheme = useColorScheme();
 

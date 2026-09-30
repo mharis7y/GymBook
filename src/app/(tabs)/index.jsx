@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import {
   View,
   Text,
+  Image,
   ScrollView,
   RefreshControl,
   StyleSheet,
@@ -14,6 +15,7 @@ import { Users, CheckCircle2, Clock, TrendingUp, TrendingDown, ChevronRight, Set
 import { useAuth } from '@/store/AuthContext';
 import { useDb } from '@/lib/DbContext';
 import { getDashboardStats, getRecentMembers, getFinanceStatsForMonth } from '@/lib/db';
+import { images } from '@/constants/images';
 
 // ─── Colors ──────────────────────────────────────────────────────────────────
 const C = {
@@ -199,13 +201,17 @@ export default function DashboardScreen() {
       >
         {/* ── Header ── */}
         <View style={styles.header}>
-          <View>
-            <Text style={styles.greeting}>{getGreeting()},</Text>
-            <Text style={styles.adminName}>{firstName}</Text>
+          {/* Left: logo + greeting */}
+          <View style={styles.headerLeft}>
+            <Image source={images.appIcon} style={styles.headerLogo} resizeMode="contain" />
+            <View>
+              <Text style={styles.greeting}>{getGreeting()},</Text>
+              <Text style={styles.adminName}>{firstName}</Text>
+            </View>
           </View>
           <TouchableOpacity
             style={styles.settingsBtn}
-            onPress={() => {/* settings later */}}
+            onPress={() => router.push('/(tabs)/settings')}
             activeOpacity={0.7}
           >
             <Settings size={22} color={C.emeraldInk} strokeWidth={1.8} />
@@ -329,6 +335,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 2,
+  },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  headerLogo: {
+    width: 40,
+    height: 40,
+    borderRadius: 10,
   },
   greeting: {
     fontSize: 14,

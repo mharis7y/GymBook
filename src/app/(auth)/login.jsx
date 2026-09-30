@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   KeyboardAvoidingView,
   Keyboard,
@@ -15,6 +16,7 @@ import { useRouter } from 'expo-router';
 import { useAuth } from '@/store/AuthContext';
 import { getAdminProfile } from '@/lib/storage';
 import PinInput from '@/components/PinInput';
+import { images } from '@/constants/images';
 
 export default function LoginScreen() {
   const { login, adminName } = useAuth();
@@ -110,9 +112,7 @@ export default function LoginScreen() {
 
           {/* ── Branding Logo (glides to top when keyboard is open) ── */}
           <Animated.View style={[styles.brandingRow, { marginBottom: brandingMarginBottom }]}>
-            <View style={styles.logoMark}>
-              <Text style={styles.logoMarkText}>TF</Text>
-            </View>
+            <Image source={images.appIcon} style={styles.logoImage} resizeMode="contain" />
             <Text style={styles.appName}>Taj Fitness</Text>
           </Animated.View>
 
@@ -176,23 +176,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 12,
   },
-  logoMark: {
-    width: 44,
-    height: 44,
+  logoImage: {
+    width: 48,
+    height: 48,
     borderRadius: 12,
-    backgroundColor: '#064E3B',
-    alignItems: 'center',
-    justifyContent: 'center',
     shadowColor: '#064E3B',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.25,
     shadowRadius: 8,
     elevation: 8,
-  },
-  logoMarkText: {
-    color: '#F8E7C9',
-    fontSize: 16,
-    fontFamily: 'Poppins_700Bold',
   },
   appName: {
     fontSize: 20,
